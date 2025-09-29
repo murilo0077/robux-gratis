@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000; /* Fundo preto para o site */
+    color: #fff; /* Cor do texto branca para contraste */
+    font-family: Arial, sans-serif;
+    flex-direction: column; /* Organiza os itens em coluna */
+}
+
+.main-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaço entre os blocos (imagem superior, header, botão) */
+}
+
+.top-image {
+    max-width: 800px; /* Tamanho da imagem superior */
+    height: auto;
+    border-radius: 10px; /* Pequeno arredondamento */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* Brilho suave */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre as imagens e o título */
+}
+
+.main-title {
+    font-size: 3em;
+    color: #FFD700; /* Cor dourada para o título */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Efeito de brilho */
+    text-align: center; /* Garante que o título esteja centralizado */
+}
+
+.rotating-image {
+    width: 80px; /* Tamanho da imagem giratória */
+    height: 80px;
+    animation: spin 3s linear infinite; /* Aplica a animação de giro */
+    border-radius: 50%; /* Faz a imagem parecer redonda se for quadrada */
+    object-fit: cover; /* Garante que a imagem preencha o espaço */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Brilho na imagem */
+}
+
+/* A imagem da direita, que não é mais clicável, não precisa de cursor pointer */
+/* .rotating-image.right {
+    cursor: default; REMOVA ISSO SE ESTIVER NO SEU CSS ANTERIOR
+} */
+
+
+.click-button {
+    font-size: 2em; /* Tamanho do texto do botão */
+    color: #FF0000; /* Cor vermelha para o texto */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Efeito de brilho vermelho */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-weight: bold; /* Deixa o texto em negrito */
+    margin-top: 20px; /* Espaço entre o título e o botão */
+    transition: transform 0.2s ease-in-out; /* Animação suave ao passar o mouse */
+}
+
+.click-button:hover {
+    transform: scale(1.05); /* Pequeno aumento ao passar o mouse */
+}
+
+/* Definição da animação de giro */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.full-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid #FFD700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
